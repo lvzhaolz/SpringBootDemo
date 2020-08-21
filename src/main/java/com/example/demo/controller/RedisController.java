@@ -18,7 +18,7 @@ public class RedisController {
 
     @GetMapping("/count")
     public String getAllUserCount() {
-
+        //测试缓存穿透，多个线程都去查询数据库，这种现象就叫做缓存穿透，如果并发比较大，对数据库的压力过大，有可能造成数据库宕机。
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
         for (int i = 0; i < 10; i++) {
             final int index = i;
