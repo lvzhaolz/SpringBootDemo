@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>login test</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        function login() {
+            $.ajax({
+                //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "http://192.168.169.195:18010/peel/oauthCa",//url
+                data: $('#form1').serialize(),
+                success: function (result) {
+                    console.log(result);//打印服务端返回的数据(调试用)
+                    if (result.resultCode == 200) {
+                        alert("SUCCESS");
+                    }
+                    ;
+                },
+                error: function () {
+                    alert("wrong");
+                }
+            });
+        }
+
+        function get() {
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "http://192.168.169.195:10083/user/get",
+                success: function (result) {
+                    console.log(result)
+                },
+                error: function () {
+                    alert("error")
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<div id="form-div">
+    <input type="button" value="btn" onclick="get()"/>
+
+    <form id="form1" onsubmit="return false" action="##" method="post">
+        education<input type="text" name="education"><br>
+        major<input type="text" name="major"><br>
+        school<input type="text" name="school"><br>
+        jobLocation<input type="text" name="jobLocation"><br>
+        workingYears<input type="text" name="workingYears"><br>
+        skills<input type="text" name="skills"><br>
+        position<input type="text" name="position"><br>
+        selfIntroduction<input type="text" name="selfIntroduction"><br>
+        <p><input type="button" value="submit" onclick="login()">&nbsp;<input type="reset" value="reset"></p>
+    </form>
+</div>
+</body>
+</html>
