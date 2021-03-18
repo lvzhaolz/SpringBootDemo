@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.User;
+import com.example.demo.model.po.UserPO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author lvzhao
  * @since 2020-05-14
  */
-public interface IUserService extends IService<User> {
+public interface IUserService extends IService<UserPO> {
 
     Integer queryAllUserCount();
 

@@ -1,10 +1,12 @@
 package com.example.demo.controller;
 
-
-import com.example.demo.entity.User;
+import com.example.demo.model.Result;
+import com.example.demo.model.po.UserPO;
 import com.example.demo.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,20 +25,19 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @RequestMapping("/get")
-//    @ResponseBody
-    public User get() {
-        User user = userService.getById(1);
-        return user;
+    @GetMapping("/get")
+    public Result<UserPO> get() {
+        UserPO userPO = userService.getById("1");
+        return new Result<>("0", userPO, "");
     }
 
-    @RequestMapping("/update")
+    @PutMapping("/update")
     @Transactional
     public String update() {
-        User user = userService.getById(1);
-        user.setName("user1-2");
-        boolean isUpdateById = userService.updateById(user);
-        return user.toString() + "  isUpdateById  " + isUpdateById;
+        UserPO userPO = userService.getById("1");
+        userPO.setUsername("user1-2");
+        boolean isUpdateById = userService.updateById(userPO);
+        return userPO.toString() + "  isUpdateById  " + isUpdateById;
     }
 
 
