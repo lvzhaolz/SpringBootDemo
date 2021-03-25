@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class InterfaceTest {
 
-    @Value("${test.name}")
+//    @Value("${test.name}")
     private String testName;
 
     @Autowired

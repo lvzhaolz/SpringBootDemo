@@ -37,15 +37,4 @@ public class DemoConfig {
         return new MyBeanTest2("MyBeanTest21");
     }
 
-    @Test
-    public void test() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DemoConfig.class);
-        MyBeanTest myBeanTest1 = (MyBeanTest) context.getBean("MyBeanTest");
-        MyBeanTest myBeanTest2 = (MyBeanTest) context.getBean("MyBeanTest2");
-        MyBeanTest2 myBeanTest21 = context.getBean(MyBeanTest2.class);
-
-        System.out.println(myBeanTest1 + "\n" + myBeanTest2 + "\n" + myBeanTest21);
-
-    }
-
 }

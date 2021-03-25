@@ -1,35 +1,39 @@
 package com.example.demo.config;
 
+import com.example.demo.interceptor.CustomInterceptor;
 import com.example.demo.model.CustomBean;
-import org.junit.Test;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @Configuration
-public class MyConfig {
+public class MyConfig implements WebMvcConfigurer {
 
-    @Bean
+    @Bean(name = "customBean555")
     public CustomBean customBean555() {
         return new CustomBean("test123123");
     }
 
-    @Bean
+    @Bean(name = "customBean55")
     public CustomBean customBean55() {
         return new CustomBean("test55");
     }
 
-    @Test
-    public void test() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
-        CustomBean customBean = (CustomBean) context.getBean("customBean55");
-        System.out.println(customBean);
+    @Bean
+    CustomInterceptor getCustomInterceptor() {
+        return new CustomInterceptor();
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(getCustomInterceptor())
+                .addPathPatterns("/**");
     }
 
     /**
@@ -39,7 +43,6 @@ public class MyConfig {
      */
     @Bean
     public FilterRegistrationBean testFilterRegistration() {
-
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new MyFilter());
         registration.addUrlPatterns("/*");

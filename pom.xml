@@ -22,7 +22,8 @@
     <!--maven属性配置，可以在其它地方通过${}方式进行引用-->
     <properties>
         <java.version>1.8</java.version>
-        <dep.mybatis-plus-boot-starter.version>3.2.0</dep.mybatis-plus-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.4.2</mybatis-plus-boot-starter.version>
+        <mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
     </properties>
 
     <repositories>
@@ -68,13 +69,19 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${dep.mybatis-plus-boot-starter.version}</version>
+            <version>${mybatis-plus-boot-starter.version}</version>
         </dependency>
         <!--        代码生成器-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>${dep.mybatis-plus-boot-starter.version}</version>
+            <version>${mybatis-plus-generator.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>mybatis-plus-extension</artifactId>
+                    <groupId>com.baomidou</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!--        代码模板-->
         <dependency>
@@ -94,6 +101,27 @@
             <artifactId>lombok</artifactId>
             <version>1.18.8</version>
         </dependency>
+
+        <!--activiti 7-->
+<!--        <dependency>-->
+<!--            <groupId>org.activiti.dependencies</groupId>-->
+<!--            <artifactId>activiti-dependencies</artifactId>-->
+<!--            <version>7.1.0.M5</version>-->
+<!--            <scope>import</scope>-->
+<!--            <type>pom</type>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-engine</artifactId>
+            <version>7.0.0.SR1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>mybatis</artifactId>
+                    <groupId>org.mybatis</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
     </dependencies>
 
     <build>
