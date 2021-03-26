@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/processdef">
+    <process id="test" name="tes" isExecutable="true">
+        <startEvent id="start" name="Start Event 2"/>
+        <endEvent id="end" name="End Event 1"/>
+        <userTask id="task1" name="user task 1"/>
+        <sequenceFlow sourceRef="start" targetRef="task1" id="flow1"/>
+        <sequenceFlow sourceRef="task1" targetRef="end" id="flow2"/>
+    </process>
+</definitions>

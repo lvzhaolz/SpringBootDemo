@@ -4,6 +4,7 @@ import com.example.demo.config.DemoConfig;
 import com.example.demo.model.CustomBean;
 import com.example.demo.model.MyBeanTest;
 import com.example.demo.model.MyBeanTest2;
+import com.example.demo.service.ActivitiService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
