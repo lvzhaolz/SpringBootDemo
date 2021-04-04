@@ -13,7 +13,7 @@ import javax.sql.DataSource;
  * @author lvzhao
  * @since 2021/3/22.
  */
-@Configuration
+//@Configuration
 public class ActivitiConfig {
     /**
      * 工作流流程引擎配置文件

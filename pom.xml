@@ -24,6 +24,7 @@
         <java.version>1.8</java.version>
         <mybatis-plus-boot-starter.version>3.4.2</mybatis-plus-boot-starter.version>
         <mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
+        <alipay-sdk-version>4.13.0.ALL</alipay-sdk-version>
     </properties>
 
     <repositories>
@@ -120,6 +121,13 @@
                     <groupId>org.mybatis</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!--支付宝-->
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>${alipay-sdk-version}</version>
         </dependency>
 
     </dependencies>
