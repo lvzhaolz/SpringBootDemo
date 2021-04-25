@@ -19,7 +19,7 @@ import java.util.List;
  * @author lvzhao
  * @since 2021/3/26.
  */
-@Service
+//@Service
 @Slf4j
 public class ActivitiServiceImpl implements ActivitiService {
 

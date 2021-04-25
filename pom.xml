@@ -25,6 +25,7 @@
         <mybatis-plus-boot-starter.version>3.4.2</mybatis-plus-boot-starter.version>
         <mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
         <alipay-sdk-version>4.13.0.ALL</alipay-sdk-version>
+        <spring-security>5.1.6.RELEASE</spring-security>
     </properties>
 
     <repositories>
@@ -56,6 +57,11 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+        </dependency>
+        <!--springboot security-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <!--        redis集成-->
         <dependency>
@@ -104,13 +110,13 @@
         </dependency>
 
         <!--activiti 7-->
-<!--        <dependency>-->
-<!--            <groupId>org.activiti.dependencies</groupId>-->
-<!--            <artifactId>activiti-dependencies</artifactId>-->
-<!--            <version>7.1.0.M5</version>-->
-<!--            <scope>import</scope>-->
-<!--            <type>pom</type>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.activiti.dependencies</groupId>-->
+        <!--            <artifactId>activiti-dependencies</artifactId>-->
+        <!--            <version>7.1.0.M5</version>-->
+        <!--            <scope>import</scope>-->
+        <!--            <type>pom</type>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-engine</artifactId>
@@ -128,6 +134,13 @@
             <groupId>com.alipay.sdk</groupId>
             <artifactId>alipay-sdk-java</artifactId>
             <version>${alipay-sdk-version}</version>
+        </dependency>
+
+        <!--spring security-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>${spring-security}</version>
         </dependency>
 
     </dependencies>
