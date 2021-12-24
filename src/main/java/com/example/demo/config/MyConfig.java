@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Configuration
@@ -37,7 +38,7 @@ public class MyConfig implements WebMvcConfigurer {
     }
 
     /**
-     * 配置过滤器
+     * 手动配置过滤器，还有一种是注解形式@WebFilter
      *
      * @return
      */
@@ -62,12 +63,16 @@ public class MyConfig implements WebMvcConfigurer {
         }
 
         @Override
-        public void doFilter(ServletRequest srequest, ServletResponse sresponse, FilterChain filterChain)
+        public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
                 throws IOException, ServletException {
             // TODO Auto-generated method stub
-            HttpServletRequest request = (HttpServletRequest) srequest;
-            System.out.println("this is MyFilter,url :" + request.getRequestURI());
-            filterChain.doFilter(srequest, sresponse);
+            HttpServletRequest httpRequest = (HttpServletRequest) request;
+            System.out.println("this is MyFilter,url :" + httpRequest.getRequestURI());
+//            filterChain.doFilter(httpRequest, response);
+//            return;
+//            HttpServletResponse httpResponse = (HttpServletResponse) response;
+//            httpResponse.setStatus(401);
+
         }
 
         @Override
