@@ -68,7 +68,7 @@ public class MyConfig implements WebMvcConfigurer {
             // TODO Auto-generated method stub
             HttpServletRequest httpRequest = (HttpServletRequest) request;
             System.out.println("this is MyFilter,url :" + httpRequest.getRequestURI());
-//            filterChain.doFilter(httpRequest, response);
+            filterChain.doFilter(httpRequest, response);
 //            return;
 //            HttpServletResponse httpResponse = (HttpServletResponse) response;
 //            httpResponse.setStatus(401);
