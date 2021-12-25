@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 // 消息生产者
-@Component
+//@Component
 public class HelloSender {
     @Autowired
     private RabbitTemplate template;

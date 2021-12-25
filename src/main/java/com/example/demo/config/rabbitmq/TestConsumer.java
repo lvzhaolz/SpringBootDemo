@@ -5,7 +5,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 // 定义消费者
-@Component
+//@Component
 @Slf4j
 public class TestConsumer {
 
